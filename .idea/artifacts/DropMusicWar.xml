@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="DropMusicWar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DropMusicWar</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="DropMusic/web/Web" />
+      <element id="javaee-facet-resources" facet="DropMusic/web/Web2" />
+    </root>
+  </artifact>
+</component>
