@@ -7,4 +7,4 @@ Hello <%=session.getAttribute("user") %>!
 <br />
 <br />
 <br />
-<!--<a href="chat.jsp">Enter chat!</a> ENTRA PROGRAMA-->
+<!--<a href="chat.dropmusic.jsp">Enter chat!</a> ENTRA PROGRAMA-->

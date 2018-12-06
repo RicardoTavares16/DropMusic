@@ -1,4 +1,4 @@
-package jsp;
+package dropmusic.jsp;
 
 public class Registo {
 }
