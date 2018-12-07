@@ -8,12 +8,23 @@
     <title>Drop Music - Login</title>
 </head>
 <body>
+
+<h1>DropMusic - Login</h1>
+
 <s:form action="login" method="post">
     <s:text name="Username:" />
     <s:textfield name="PersonBean.username" /><br>
     <s:text name="Password:" />
     <s:password name="PersonBean.password" /><br>
-    <s:submit />
+    <button type="submit" class="pure-button pure-button-primary">Sign in</button>
 </s:form>
+
+<h4>Login with DropBox</h4>
+
+<h4>Sign Up</h4>
+<s:form action="regist" method="post">
+
+</s:form>
+
 </body>
 </html>
