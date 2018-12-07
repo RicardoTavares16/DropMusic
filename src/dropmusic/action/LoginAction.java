@@ -17,30 +17,11 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
     private String username = null, password = null;
 
-    private RmiInterface rmiServer;
-
-
     private static final String SUCCESS_USER = "success user";
     private static final String SUCCESS_ADMIN = "success admin";
 
     @Override
     public String execute() throws Exception {
-        System.out.println("Trying to Login");
-
-        try {
-            System.out.println("TRY");
-            Registry registry = LocateRegistry.getRegistry(1099);
-            rmiServer = (RmiInterface) Naming.lookup("XPTO");
-            System.out.println("XPTO");
-        } catch (AccessException e) {
-            throw new ServletException(e);
-        } catch (RemoteException e) {
-            throw new ServletException(e);
-        } catch (NotBoundException e) {
-            throw new ServletException(e);
-        }
-
-        System.out.println("After RMI");
 
         PersonBean person = this.getPersonBean();
         username = person.getUsername();
@@ -48,7 +29,6 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
         System.out.println(username + ", " + password);
 
-        rmiServer.login("tintin", "unicorn", 1);
 
         return SUCCESS_ADMIN;
     }
