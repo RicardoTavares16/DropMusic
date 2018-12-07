@@ -48,7 +48,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
         System.out.println(username + ", " + password);
 
-        rmiServer.login("tintin", "unicorn", 2);
+        rmiServer.login("tintin", "unicorn", 1);
 
         return SUCCESS_ADMIN;
     }
