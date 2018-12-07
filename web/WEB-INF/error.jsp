@@ -5,15 +5,10 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Drop Music - Login</title>
+    <title>ERROR</title>
 </head>
 <body>
-<s:form action="login" method="post">
-    <s:text name="Username:" />
-    <s:textfield name="PersonBean.username" /><br>
-    <s:text name="Password:" />
-    <s:password name="PersonBean.password" /><br>
-    <s:submit />
-</s:form>
+<h4>You got an exception. Please <i>throw</i> it to someone who can handle it.</h4>
+<p><s:property value="exceptionStack" /></p>
 </body>
 </html>

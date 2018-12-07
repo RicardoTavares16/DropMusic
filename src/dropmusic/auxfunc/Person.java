@@ -1,4 +1,4 @@
-package dropmusic.tmp;
+package dropmusic.auxfunc;
 
 import java.io.Serializable;
 
@@ -10,6 +10,8 @@ public class Person implements Serializable {
     private boolean editor;
     private String username;
     private String password;
+
+    public Person() {}
 
     public Person(String username, String password, boolean editor){
         this.username = username;
