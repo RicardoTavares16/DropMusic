@@ -1,6 +1,6 @@
 package jsp;
 
-import servlets.RmiInterface;
+import rmi.RmiInterface;
 
 import java.io.IOException;
 import java.io.PrintWriter;

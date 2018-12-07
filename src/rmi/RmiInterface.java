@@ -1,16 +1,11 @@
-package servlets;
+package rmi;
 
-import auxfunc.Album;
-import auxfunc.Music;
-import java.rmi.*;
-import java.io.File;
+import dropmusic.auxfunc.Album;
+import dropmusic.auxfunc.Music;
+import java.rmi.Remote;
 import java.util.List;
 
-/**
- * Interface RMI, permite chamadas de funções pelo cliente RMI
- */
 public interface RmiInterface extends Remote {
-
     public boolean login(String user, String pass, int id) throws java.rmi.RemoteException; //+
 
     public boolean registo(String user, String pass, int id) throws java.rmi.RemoteException;//+
@@ -40,8 +35,6 @@ public interface RmiInterface extends Remote {
     //public void pesquisaAlbum(String s) throws java.rmi.RemoteException;
 
     public boolean makeEditor( String user1, String user2, int id) throws java.rmi.RemoteException; //+
-
-
 
 
 }
