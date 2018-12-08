@@ -18,27 +18,45 @@ public class LoginAction extends ActionSupport implements SessionAware {
     private String username = null, password = null;
 
     private static final String SUCCESS_USER = "success user";
-    private static final String SUCCESS_ADMIN = "success admin";
+    private static final String SUCCESS_EDITOR = "success editor";
 
     @Override
     public String execute() throws Exception {
 
-        PersonBean person = this.getPersonBean();
-        username = person.getUsername();
-        password = person.getPassword();
+        if(this.username != null && !username.equals("")) {
+            PersonBean person = this.getPersonBean();
+            person.setUsername(this.username);
+            person.setPassword(this.password);
 
-        System.out.println(username + ", " + password);
+            //System.out.println(username + ", " + password);
+            if(this.getPersonBean().getLogin()) {
 
+                session.put("loggedin", true);
+                session.put("username", username);
 
-        return SUCCESS_ADMIN;
+                if(this.getPersonBean().getIsEditor()) {
+                    return SUCCESS_EDITOR;
+                }
+                return SUCCESS_USER;
+            }
+        }
+
+        return ERROR;
     }
 
-    public PersonBean getPersonBean() {
+    public PersonBean getPersonBean() throws Exception {
         if(!session.containsKey(PersonBean.SESSION_MAP_KEY)) {
             this.setPersonBean(new PersonBean());
         }
 
         return (PersonBean) session.get(PersonBean.SESSION_MAP_KEY);
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setPersonBean(PersonBean personBean) {

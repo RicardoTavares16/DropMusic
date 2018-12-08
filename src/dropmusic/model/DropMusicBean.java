@@ -13,7 +13,6 @@ public class DropMusicBean {
 
     public DropMusicBean() throws Exception {
         try {
-            Registry registry = LocateRegistry.getRegistry(1099);
             rmiServer = (RmiInterface) Naming.lookup("XPTO");
         } catch (NotBoundException|MalformedURLException|RemoteException e) {
             throw new ServletException(e);

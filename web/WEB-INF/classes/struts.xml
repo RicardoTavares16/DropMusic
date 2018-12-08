@@ -33,13 +33,13 @@ and should reside on the classpath of the webapp (generally /WEB-INF/classes). -
 	
 	<!-- login action -> execute in LoginAction -> views user.dropmusic.jsp, admin.dropmusic.jsp or index.dropmusic.jsp -->
     <action name="login" class="dropmusic.action.LoginAction" method="execute">
-      <result name="success user">/WEB-INF/person.jsp</result>
-      <result name="success admin">/resources/admin.jsp</result>
+      <result name="success user">/resources/person.jsp</result>
+      <result name="success editor">/resources/editor.jsp</result>
       <result name="error">/index.jsp</result>
     </action>
 
     <action name="regist" class="dropmusic.action.RegistAction" method="execute">
-        <result name="success">/WEB-INF/person.jsp</result>
+        <result name="success">/resources/person.jsp</result>
         <result name="error">/index.jsp</result>
     </action>
 

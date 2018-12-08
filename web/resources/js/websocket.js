@@ -7,31 +7,35 @@ window.onload = function() {
 
 function connect(host) {
     console.log("host:" + host);
-    if('WebSocket' in window) {
+    if ('WebSocket' in window)
         websocket = new WebSocket(host);
-    } else if('MozWebSocket' in window) {
+    else if ('MozWebSocket' in window)
         websocket = new MozWebSocket(host);
-    } else {
-        console.log("Erro");
+    else {
+        console.log('Get a real browser which supports WebSocket.');
         return;
     }
 
-    console.log("WebSocket Connected");
-    websocket.onopen = onOpen;
-    websocket.onclose = onClose;
-    websocket.onerror = onError;
+    websocket.onopen    = onOpen; // set the 4 event listeners below
+    websocket.onclose   = onClose;
+    websocket.onmessage = onMessage;
+    websocket.onerror   = onError;
 }
 
-function onOpen(ev) {
+function onOpen(e) {
     console.log("WebSocket - onOpen()");
     websocket.send($('#person-username'.text()));
 }
 
-function onClose(ev) {
+function onClose(e) {
     console.log("WebSocket - onClose()");
 }
 
-function onError(ev) {
+function onMessage(message) { // print the received message
+    writeToLog(message.data);
+}
+
+function onError(e) {
     console.log("WebSocket - onError()");
 }
 

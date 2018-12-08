@@ -10,6 +10,8 @@ public interface RmiInterface extends Remote {
 
     public boolean registo(String user, String pass, int id) throws java.rmi.RemoteException;//+
 
+    public boolean isEditor(String user, int id) throws java.rmi.RemoteException;
+
     public Boolean addMusic(String name, int id)  throws java.rmi.RemoteException;
 
     public Boolean addAlbum(String name, int id) throws java.rmi.RemoteException;
