@@ -27,6 +27,7 @@ public class RegistAction extends ActionSupport implements SessionAware {
 
                 session.put("loggedin", true);
                 session.put("username", username);
+                session.put("editor", false);
                 return SUCCESS;
             }
         }

@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>DropMusic - Admin</title>
+    <title>DropMusic - EDITOR</title>
 </head>
 <body>
     <p>Welcome <span id="person-username"><c:out value="${personBean.username}" /> to DropMusic - EDITOR</span></p>
@@ -33,15 +33,6 @@
     </div>
 
     <noscript>JavaScript must be enabled for WebSockets to work.</noscript>
-    <div>
-        <p>List online users:</p>
-        <div class="person-log-container">
-            <div class="person-log-history">No user connected.</div>
-        </div>
-    </div>
-
-    <span id="eleitor-nome" hidden><c:out value="${eleitorBean.numeroCC}"/></span>
-
 
     <script src="resources/js/jquery-3.2.1.min.js"></script>
     <script src="resources/js/websocket.js"></script>

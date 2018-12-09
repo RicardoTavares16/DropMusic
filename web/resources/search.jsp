@@ -5,12 +5,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>DropMusic</title>
+    <title>DropMusic - Search</title>
 </head>
 <body>
-    <p>Welcome <span id="person-username"><c:out value="${personBean.username}" /> to DropMusic</span></p>
 
-    <script src="resources/js/jquery-3.2.1.min.js"></script>
-    <script src="resources/js/websocket.js"></script>
 </body>
 </html>

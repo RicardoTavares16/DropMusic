@@ -3,11 +3,7 @@ package dropmusic.action;
 import com.opensymphony.xwork2.ActionSupport;
 import dropmusic.model.PersonBean;
 import org.apache.struts2.interceptor.SessionAware;
-import rmi.RmiInterface;
 
-import javax.servlet.ServletException;
-import java.rmi.*;
-import java.rmi.registry.*;
 import java.util.Map;
 
 
@@ -25,6 +21,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
         if(this.username != null && !username.equals("")) {
             PersonBean person = this.getPersonBean();
+
             person.setUsername(this.username);
             person.setPassword(this.password);
 
@@ -35,8 +32,10 @@ public class LoginAction extends ActionSupport implements SessionAware {
                 session.put("username", username);
 
                 if(this.getPersonBean().getIsEditor()) {
+                    session.put("editor", true);
                     return SUCCESS_EDITOR;
                 }
+                session.put("editor", false);
                 return SUCCESS_USER;
             }
         }
@@ -51,6 +50,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
         return (PersonBean) session.get(PersonBean.SESSION_MAP_KEY);
     }
+
 
     public void setUsername(String username) {
         this.username = username;
