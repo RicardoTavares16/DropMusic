@@ -12,7 +12,10 @@ public class DropMusicAction extends ActionSupport implements SessionAware {
 
     @Override
     public String execute() throws Exception {
-        DropMusicBean dropmusic = this.getDropMusicBean();
+        System.out.println("Executing DropMusic Action!");
+        //DropMusicBean dropmusic = this.getDropMusicBean();
+
+        if(!LoginAction.isPersonLogged(this.session)) return ERROR;
         return "success";
     }
 
@@ -27,6 +30,7 @@ public class DropMusicAction extends ActionSupport implements SessionAware {
     public void setDropMusicBean(DropMusicBean dropMusicBean) {
         this.session.put(DropMusicBean.SESSION_MAP_KEY, dropMusicBean);
     }
+
 
     @Override
     public void setSession(Map<String, Object> session) {

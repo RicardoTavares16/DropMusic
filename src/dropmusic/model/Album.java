@@ -1,6 +1,14 @@
-package dropmusic.auxfunc;
+package dropmusic.model;
 
-import java.io.Serializable;
+import dropmusic.auxfunc.Music;
+import dropmusic.auxfunc.Review;
+import rmi.RmiInterface;
+
+import javax.servlet.ServletException;
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -9,11 +17,27 @@ import java.util.List;
  * Class que contém os dados de um dado Album.
  */
 
-public class Album implements Serializable {
+public class Album {
     private String albumName;
     private List<Music> musicList = Collections.synchronizedList(new ArrayList<Music>());
     private List<Review> reviewList = Collections.synchronizedList(new ArrayList<Review>());
     private String details;
+    public static final String SESSION_MAP_KEY = "albumBean";
+
+    private RmiInterface rmiServer;
+
+    public List<Album> getAlbums() throws Exception {
+        try {
+            System.out.println("Creating RMI Connection...");
+            int id = (int) (Math.random() * 100);
+            id = id * 2 + 1;
+            rmiServer = (RmiInterface) Naming.lookup("XPTO");
+
+            return rmiServer.getAlbuns(id);
+        } catch (NotBoundException | MalformedURLException | RemoteException e) {
+            throw new ServletException(e);
+        }
+    }
 
     public Album(String name) {
         this.albumName = name;

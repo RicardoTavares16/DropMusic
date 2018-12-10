@@ -16,8 +16,8 @@
     </c:when>
 </c:choose>
 
-<c:forEach items="${DropMusicBean.allAlbums}" var="value">
-    <c:out value="${value}"/><br>
+<c:forEach items="${albumBean.albums}" var="album">
+    <c:out value="${album.name}" /><br>
 </c:forEach>
 
 <!-- se editor -> editor.jsp, se person -> person.jsp -->

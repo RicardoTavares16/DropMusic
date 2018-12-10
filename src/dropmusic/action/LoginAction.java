@@ -63,6 +63,9 @@ public class LoginAction extends ActionSupport implements SessionAware {
         this.session.put(PersonBean.SESSION_MAP_KEY, personBean);
     }
 
+    public static boolean isPersonLogged(Map<String, Object> session) {
+        return session.get(PersonBean.SESSION_MAP_KEY) != null;
+    }
 
     @Override
     public void setSession(Map<String, Object> session) {

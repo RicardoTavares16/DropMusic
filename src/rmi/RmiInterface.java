@@ -1,6 +1,6 @@
 package rmi;
 
-import dropmusic.auxfunc.Album;
+import dropmusic.model.Album;
 import dropmusic.auxfunc.Music;
 import java.rmi.Remote;
 import java.util.List;
