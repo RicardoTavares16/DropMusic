@@ -5,21 +5,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>DropMusic - List Albums</title>
+    <title>DropMusic - Search Album</title>
 </head>
 <body>
-<h1><p>List Albuns</p></h1>
-
-<c:choose>
-    <c:when test="${session.loggedin == true}">
-        <p>Session => logged in</p>
-    </c:when>
-</c:choose>
-
-<c:forEach items="${dropMusicBean.getAlbuns}" var="album">
-    <c:out value="${album}" /><br>
-</c:forEach>
-
 <!-- se editor -> editor.jsp, se person -> person.jsp -->
 <c:choose>
     <c:when test="${session.editor == true}">
@@ -29,6 +17,8 @@
         <p><a href="<s:url action="person" />">Back</a></p>
     </c:otherwise>
 </c:choose>
+
+<c:out value="${dropMusicBean.toShow}"/>
 
 </body>
 </html>

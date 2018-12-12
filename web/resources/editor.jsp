@@ -15,7 +15,7 @@
         <a href="<s:url action="index" />" class="pure-menu-link pure-menu-heading">Back</a>
         <ul class="pure-menu-list">
 
-            <!-- @TODO: ter uma opção para adicionar música em que é obrigatório adicionar musica, album e artista? ou um de cada vez e ter opções de os linkar? -->
+            <!-- @TODO: ter uma opção para adicionar música em que é obrigatório adicionar musica, album e artista? ou um de cada vez e t er opções de os linkar? -->
 
             <!--
                 1 - Listar Albuns
@@ -30,6 +30,17 @@
             <li class="pure-menu-item"><a href="<s:url action="manage" />" class="pure-menu-link">Manage</a>, make editor.</li>
         </ul>
 
+        <s:form action="search_by_album" method="post">
+            <s:text name="Album to search"/>
+            <s:textfield name="albumName"/>
+            <button type="submit" class="pure-button pure-button-primary">Search Album</button>
+        </s:form>
+
+        <s:form action="search_by_artist" method="post">
+            <s:text name="Artist to search"/>
+            <s:textfield name="artistName"/>
+            <button type="submit" class="pure-button pure-button-primary">Search Artist</button>
+        </s:form>
     </div>
 
     <noscript>JavaScript must be enabled for WebSockets to work.</noscript>

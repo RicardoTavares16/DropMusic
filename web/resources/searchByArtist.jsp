@@ -5,9 +5,21 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>DropMusic - Search</title>
+    <title>DropMusic - Search Artist</title>
 </head>
 <body>
+<!-- se editor -> editor.jsp, se person -> person.jsp -->
+<c:choose>
+    <c:when test="${session.editor == true}">
+        <p><a href="<s:url action="editor" />">Back Editor</a></p>
+    </c:when>
+    <c:otherwise>
+        <p><a href="<s:url action="person" />">Back</a></p>
+    </c:otherwise>
+</c:choose>
+
+<c:out value="${dropMusicBean.toShow}" />
 
 </body>
 </html>
+

@@ -32,7 +32,6 @@ public class PersonBean implements Serializable {
     }
 
     public boolean getLogin() throws RemoteException {
-        System.out.println("Login ID = " + this.id);
         return rmiServer.login(username, password, id);
     }
 
@@ -53,7 +52,6 @@ public class PersonBean implements Serializable {
 
     public String getUsername() { return this.username; }
     public String getPassword() { return this.password; }
-    public int getId() { return this.id; }
 
     public boolean getAdmin() { return this.admin; }
     public void setAdmin(boolean admin) { this.admin = admin; }

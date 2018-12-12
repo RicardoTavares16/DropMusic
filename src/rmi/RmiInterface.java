@@ -1,8 +1,9 @@
 package rmi;
 
-import dropmusic.model.Album;
 import dropmusic.auxfunc.Music;
+
 import java.rmi.Remote;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface RmiInterface extends Remote {
@@ -18,7 +19,7 @@ public interface RmiInterface extends Remote {
 
     public Boolean addArtist(String name, int id) throws java.rmi.RemoteException;
 
-    public List<Album> getAlbuns(int id) throws java.rmi.RemoteException;
+    public ArrayList<String> getAlbuns(int id) throws java.rmi.RemoteException;
 
     public String getAlbumData(String x, int id) throws java.rmi.RemoteException;
 

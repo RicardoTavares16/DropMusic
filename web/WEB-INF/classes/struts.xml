@@ -39,6 +39,10 @@ and should reside on the classpath of the webapp (generally /WEB-INF/classes). -
             <result>/resources/editor.jsp</result>
         </action>
 
+        <action name="add">
+            <result>/resources/add.jsp</result>
+        </action>
+
         <!-- login action -> execute in LoginAction -> views user.dropmusic.jsp, admin.dropmusic.jsp or index.dropmusic.jsp -->
         <action name="login" class="dropmusic.action.LoginAction" method="execute">
             <result name="success user">/resources/person.jsp</result>
@@ -53,6 +57,29 @@ and should reside on the classpath of the webapp (generally /WEB-INF/classes). -
 
         <action name="list_albums" class="dropmusic.action.DropMusicAction" method="execute">
             <result name="success">/resources/listAlbums.jsp</result>
+        </action>
+
+        <action name="search_by_album" class="dropmusic.action.DropMusicAction" method="execute">
+            <result name="success">/resources/searchByName.jsp</result>
+        </action>
+
+        <action name="search_by_artist" class="dropmusic.action.DropMusicAction" method="execute">
+            <result name="success">/resources/searchByArtist.jsp</result>
+        </action>
+
+        <action name="add_music" class="dropmusic.action.AddAction" method="execute">
+            <result name="success">/resources/add.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="add_album" class="dropmusic.action.AddAction" method="execute">
+            <result name="success">/resources/add.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="add_artist" class="dropmusic.action.AddAction" method="execute">
+            <result name="success">/resources/add.jsp</result>
+            <result name="error">/error.jsp</result>
         </action>
 
     </package>
