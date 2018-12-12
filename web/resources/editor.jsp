@@ -25,7 +25,6 @@
             -->
 
             <li class="pure-menu-item"><a href="<s:url action="list_albums" />" class="pure-menu-link">List Albums</a>, list all the albums.</li>
-            <li class="pure-menu-item"><a href="<s:url action="search" />" class="pure-menu-link">Search</a>, by artist or album.</li>
             <li class="pure-menu-item"><a href="<s:url action="add" />" class="pure-menu-link">Add</a>, music, album or artist</li>
             <li class="pure-menu-item"><a href="<s:url action="manage" />" class="pure-menu-link">Manage</a>, make editor.</li>
         </ul>

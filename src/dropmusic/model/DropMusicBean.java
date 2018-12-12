@@ -1,6 +1,5 @@
 package dropmusic.model;
 
-import dropmusic.auxfunc.Album;
 import rmi.RmiInterface;
 
 import javax.servlet.ServletException;
@@ -10,7 +9,6 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class DropMusicBean implements Serializable {
     public static final String SESSION_MAP_KEY = "dropMusicBean";
@@ -18,7 +16,6 @@ public class DropMusicBean implements Serializable {
     private RmiInterface rmiServer;
     private int id;
     private String name;
-    private String everyAlbum = "Meteora, The Wall";
 
     // To search:
     private String albumName;
@@ -26,8 +23,6 @@ public class DropMusicBean implements Serializable {
 
     //To show:
     private String toShow;
-
-    private List<Album> album;
 
 
     public DropMusicBean() throws Exception {
@@ -39,10 +34,6 @@ public class DropMusicBean implements Serializable {
         } catch (NotBoundException | MalformedURLException | RemoteException e) {
             throw new ServletException(e);
         }
-    }
-
-    public String getEveryAlbum() throws RemoteException {
-        return everyAlbum;
     }
 
     public void setName(String name) {
@@ -98,6 +89,7 @@ public class DropMusicBean implements Serializable {
 
     // @TODO: perceber o porquê do RMI funcionar, mas aqui não consegue passar desta parte.
     public ArrayList<String> getGetAlbuns() throws RemoteException {
+        System.out.println("Entrou aqui");
         return rmiServer.getAlbuns(this.id);
     }
 
