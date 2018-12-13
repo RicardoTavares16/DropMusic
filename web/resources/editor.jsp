@@ -15,7 +15,11 @@
         <a href="<s:url action="index" />" class="pure-menu-link pure-menu-heading">Back</a>
         <ul class="pure-menu-list">
 
-            <!-- @TODO: ter uma opção para adicionar música em que é obrigatório adicionar musica, album e artista? ou um de cada vez e t er opções de os linkar? -->
+            <!--
+            @TODO: ter uma opção para adicionar música em que é obrigatório adicionar musica, album e artista? ou um de cada vez e t er opções de os linkar?
+            @TODO: escrever uma critica.
+
+            -->
 
             <!--
                 1 - Listar Albuns
