@@ -9,7 +9,6 @@
 </head>
 <body>
     <p>Welcome <span id="person-username"><c:out value="${personBean.username}" /> to DropMusic - EDITOR</span></p>
-
     <!--Menu-->
     <div class="pure-menu pure-menu-horizontal pure-menu-scrollable">
         <a href="<s:url action="index" />" class="pure-menu-link pure-menu-heading">Back</a>
@@ -18,9 +17,7 @@
             <!--
             @TODO: ter uma opção para adicionar música em que é obrigatório adicionar musica, album e artista? ou um de cada vez e t er opções de os linkar?
             @TODO: escrever uma critica.
-
             -->
-
             <!--
                 1 - Listar Albuns
                 2 - Pesquisa

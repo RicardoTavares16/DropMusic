@@ -32,9 +32,13 @@ public class LoginAction extends ActionSupport implements SessionAware {
                 session.put("username", username);
 
                 if(this.getPersonBean().getIsEditor()) {
+                    System.out.println("IS EDITOR");
+                    person.setEditor(true);
                     session.put("editor", true);
                     return SUCCESS_EDITOR;
                 }
+                System.out.println("NOT EDITOR");
+                person.setEditor(false);
                 session.put("editor", false);
                 return SUCCESS_USER;
             }

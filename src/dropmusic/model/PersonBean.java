@@ -21,6 +21,8 @@ public class PersonBean implements Serializable {
     private boolean admin;
     private boolean editor;
 
+    private String user1, user2;
+
     public PersonBean() throws Exception{
         try {
             id = (int) (Math.random() * 100);
@@ -43,6 +45,10 @@ public class PersonBean implements Serializable {
         return rmiServer.isEditor(this.username, id);
     }
 
+    public boolean getMakeEditor() throws RemoteException {
+        return rmiServer.makeEditor(user1, user2, id);
+    }
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -53,14 +59,20 @@ public class PersonBean implements Serializable {
     public String getUsername() { return this.username; }
     public String getPassword() { return this.password; }
 
-    public boolean getAdmin() { return this.admin; }
-    public void setAdmin(boolean admin) { this.admin = admin; }
     public boolean getEditor() { return this.editor; }
     public void setEditor(boolean editor) { this.editor = editor; }
 
+    public void setUser1(String user1) {
+        this.user1 = user1;
+    }
+
+    public void setUser2(String user2) {
+        this.user2 = user2;
+    }
+
     @Override
     public String toString() {
-        return "PersonBean [username=" + username + ", password=" + password + ", admin=" + admin + ", editor=" + editor + "]";
+        return "PersonBean [username=" + username + ", password=" + password + ", editor=" + editor + "]";
     }
 
 }

@@ -5,15 +5,12 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>DropMusic - EDITOR</title>
+    <title>DropMusic - Manage</title>
 </head>
 <body>
 
-<p>Welcome <span id="person-username"><c:out value="${personBean.username}" /> to DropMusic - EDITOR</span></p>
-
 <s:form action="make_editor" method="post">
-    <:s:textfield name="user1" value="${personBean.username}"/>
-    <s:text name="User to make editor"/>
+    <s:text name="User to make editor: "/>
     <s:textfield name="user2"/>
     <button type="submit" class="pure-button pure-button-primary">Make Editor</button>
 </s:form>
