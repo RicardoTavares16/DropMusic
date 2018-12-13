@@ -1,4 +1,4 @@
-let websocket = null;
+var websocket = null;
 
 window.onload = function() {
     connect('ws://' + window.location.host + '/DropMusic/ws');
@@ -22,23 +22,22 @@ function connect(host) {
     websocket.onerror   = onError;
 }
 
-function onOpen(e) {
-    console.log("WebSocket - onOpen()");
-    websocket.send($('#person-username'.text()));
+function onOpen(event) {
+    console.log("Websocket onOpen() foi chamada!");
+    websocket.send($('#eleitor-nome').text());
 }
 
-function onClose(e) {
-    console.log("WebSocket - onClose()");
+function onClose(event) {
+    console.log("Websocket onClose() foi chamada!");
+    document.getElementById('chat').onkeydown = null;
 }
 
 function onMessage(message) { // print the received message
-    writeToLog(message.data);
+    console.log("Websocket onMessage() foi chamada!");
+    console.log(message);
 }
 
-function onError(e) {
-    console.log("WebSocket - onError()");
+function onError(event) {
+    document.getElementById('chat').onkeydown = null;
 }
 
-function writeToLog(newText) {
-    $('.person-log-history').html(newText);
-}

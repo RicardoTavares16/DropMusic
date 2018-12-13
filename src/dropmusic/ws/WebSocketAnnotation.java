@@ -3,6 +3,9 @@ package dropmusic.ws;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @ServerEndpoint(value = "/ws")
@@ -11,12 +14,15 @@ public class WebSocketAnnotation {
     private final String username;
     private Session session;
 
+    List<Session> socketSessions = Collections.synchronizedList(new ArrayList<Session>());
+
     public WebSocketAnnotation() {
         username = "User" + sequence.getAndIncrement();
     }
 
     @OnOpen
     public void start(javax.websocket.Session session) {
+        socketSessions.add(session);
         this.session = session;
         String message = "*" + username + "* connected.";
         sendMessage(message);
@@ -25,6 +31,7 @@ public class WebSocketAnnotation {
     @OnClose
     public void end() {
         // clean up once the WebSocket connection is closed
+        socketSessions.remove(session);
     }
 
     @OnMessage
@@ -49,6 +56,16 @@ public class WebSocketAnnotation {
                 this.session.close();
             } catch (IOException e1) {
                 e1.printStackTrace();
+            }
+        }
+    }
+
+    public void broadcast(String message){
+        for(Session session: socketSessions){
+            try {
+                session.getBasicRemote().sendText(message);
+            } catch (IOException e2){
+                e2.printStackTrace();
             }
         }
     }
