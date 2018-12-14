@@ -25,7 +25,7 @@ public class WebSocketAnnotation {
         socketSessions.add(session);
         this.session = session;
         String message = "*" + username + "* connected.";
-        sendMessage(message);
+        broadcast(message);
     }
 
     @OnClose
@@ -40,6 +40,7 @@ public class WebSocketAnnotation {
         // characters should be replaced with &lt; &gt; &quot; &amp;
         String upperCaseMessage = message.toUpperCase();
         sendMessage("[" + username + "] " + upperCaseMessage);
+        broadcast("NOTIFICACAO");
     }
 
     @OnError

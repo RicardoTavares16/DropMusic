@@ -24,12 +24,11 @@ function connect(host) {
 
 function onOpen(event) {
     console.log("Websocket onOpen() foi chamada!");
-    websocket.send($('#eleitor-nome').text());
+    websocket.send($('#person-username').text());
 }
 
 function onClose(event) {
     console.log("Websocket onClose() foi chamada!");
-    document.getElementById('chat').onkeydown = null;
 }
 
 function onMessage(message) { // print the received message
@@ -38,6 +37,5 @@ function onMessage(message) { // print the received message
 }
 
 function onError(event) {
-    document.getElementById('chat').onkeydown = null;
-}
+    console.log("Websocket onError() foi chamada!");}
 

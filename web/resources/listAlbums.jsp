@@ -30,5 +30,10 @@
     </c:otherwise>
 </c:choose>
 
+<noscript>JavaScript must be enabled for WebSockets to work.</noscript>
+
+<script src="resources/js/jquery-3.2.1.min.js"></script>
+<script src="resources/js/websocket.js"></script>
+
 </body>
 </html>
