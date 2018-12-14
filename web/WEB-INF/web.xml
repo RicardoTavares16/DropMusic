@@ -15,4 +15,15 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+
+    <servlet>
+        <servlet-name>MainMenu</servlet-name>
+        <servlet-class>dropmusic.rest.MainMenu</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MainMenu</servlet-name>
+        <url-pattern>/drophome</url-pattern>
+    </servlet-mapping>
+
 </web-app>
