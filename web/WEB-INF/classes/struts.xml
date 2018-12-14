@@ -91,6 +91,16 @@ and should reside on the classpath of the webapp (generally /WEB-INF/classes). -
             <result name="error">/error.jsp</result>
         </action>
 
+        <action name="review" class="dropmusic.action.ReviewAction" method="execute">
+            <result name="success">/resources/review.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
+        <action name="review_album" class="dropmusic.action.ReviewAction" method="execute">
+            <result name="success">/resources/listAlbums.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
     </package>
 
 </struts>

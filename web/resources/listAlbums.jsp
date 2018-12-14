@@ -10,14 +10,12 @@
 <body>
 <h1><p>List Albuns</p></h1>
 
-<c:choose>
-    <c:when test="${session.loggedin == true}">
-        <p>Session => logged in</p>
-    </c:when>
-</c:choose>
 
 <c:forEach items="${dropMusicBean.getAlbuns}" var="album">
-    <c:out value="${album}" /><br>
+    <a href="<s:url action="review">
+        <s:param name="albumName">${album}</s:param>
+    </s:url>"><c:out value="${album}" /><br></a>
+
 </c:forEach>
 
 <!-- se editor -> editor.jsp, se person -> person.jsp -->

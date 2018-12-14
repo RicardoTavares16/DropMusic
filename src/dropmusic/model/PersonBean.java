@@ -18,7 +18,6 @@ public class PersonBean implements Serializable {
     private String username;
     private String password;
     private int id;
-    private boolean admin;
     private boolean editor;
 
     private String user1, user2;

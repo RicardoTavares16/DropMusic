@@ -24,6 +24,11 @@ public class DropMusicBean implements Serializable {
     //To show:
     private String toShow;
 
+    // To Review:
+    private String review;
+    private int points;
+    private String user;
+
 
     public DropMusicBean() throws Exception {
         try {
@@ -46,6 +51,18 @@ public class DropMusicBean implements Serializable {
 
     public void setAlbumName(String albumName) {
         this.albumName = albumName;
+    }
+
+    public void setReview(String review) {
+        this.review = review;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public String getAlbumName() {
@@ -87,10 +104,12 @@ public class DropMusicBean implements Serializable {
         return this.toShow;
     }
 
-    // @TODO: perceber o porquê do RMI funcionar, mas aqui não consegue passar desta parte.
     public ArrayList<String> getGetAlbuns() throws RemoteException {
-        System.out.println("Entrou aqui");
         return rmiServer.getAlbuns(this.id);
+    }
+
+    public Boolean getAddReview() throws RemoteException {
+        return rmiServer.addReview(this.user, this.albumName, this.review + "*" + this.points, this.id);
     }
 
 

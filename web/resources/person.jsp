@@ -8,7 +8,7 @@
     <title>DropMusic</title>
 </head>
 <body>
-    <p>Welcome <span id="person-username"><c:out value="${personBean.username}" /> to DropMusic</span></p>
+    <p>Welcome <span id="person-username"><c:out value="${session.username}" /> to DropMusic</span></p>
 
     <!--Menu-->
     <div class="pure-menu pure-menu-horizontal pure-menu-scrollable">
