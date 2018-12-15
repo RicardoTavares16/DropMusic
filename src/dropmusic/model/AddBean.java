@@ -1,6 +1,7 @@
 package dropmusic.model;
 
 import rmi.RmiInterface;
+import dropmusic.auxfunc.stringFilter;
 
 import javax.servlet.ServletException;
 import java.io.Serializable;
@@ -30,15 +31,15 @@ public class AddBean implements Serializable {
     }
 
     public void setMusicToAdd(String musicToAdd) {
-        this.musicToAdd = musicToAdd;
+        this.musicToAdd = stringFilter.filter(musicToAdd);
     }
 
     public void setAlbumToAdd(String albumToAdd) {
-        this.albumToAdd = albumToAdd;
+        this.albumToAdd = stringFilter.filter(albumToAdd);
     }
 
     public void setArtistToAdd(String artistToAdd) {
-        this.artistToAdd = artistToAdd;
+        this.artistToAdd = stringFilter.filter(artistToAdd);
     }
 
     public String getMusicToAdd() {

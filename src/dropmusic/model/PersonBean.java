@@ -1,5 +1,6 @@
 package dropmusic.model;
 
+import dropmusic.auxfunc.stringFilter;
 import rmi.RmiInterface;
 
 import javax.servlet.ServletException;
@@ -49,10 +50,10 @@ public class PersonBean implements Serializable {
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.username = stringFilter.filter(username);
     }
     public void setPassword(String password) {
-        this.password = password;
+        this.password = stringFilter.filter(password);
     }
 
     public String getUsername() { return this.username; }
@@ -66,7 +67,7 @@ public class PersonBean implements Serializable {
     }
 
     public void setUser2(String user2) {
-        this.user2 = user2;
+        this.user2 = stringFilter.filter(user2);
     }
 
     @Override

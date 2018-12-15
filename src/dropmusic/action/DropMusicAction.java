@@ -14,22 +14,46 @@ public class DropMusicAction extends ActionSupport implements SessionAware {
     private String albumName;
     private String artistName;
 
+    // To edit:
+    private String newName;
+    private String newDetails;
+
+
     @Override
     public String execute() throws Exception {
+        DropMusicBean dropMusic = this.getDropMusicBean();
+
         System.out.println("Executing DropMusic Action!");
 
-        if(this.albumName != null && !albumName.equals("")) {
-            DropMusicBean dropMusic = this.getDropMusicBean();
+        if(this.newName != null && !this.newName.equals("")){
+            System.out.println(this.newName);
+            dropMusic.setNewName(this.newName);
+            if(dropMusic.getEditAlbumName()) {
+                return "success";
+            } else {
+                return ERROR;
+            }
+        }
 
+        if(this.newDetails != null && !this.newDetails.equals("")) {
+            System.out.println(this.newDetails);
+            dropMusic.setNewDetails(this.newDetails);
+            if(dropMusic.getEditAlbumDetails()) {
+                return "success";
+            } else {
+                return ERROR;
+            }
+        }
+
+        if(this.albumName != null && !albumName.equals("")) {
             dropMusic.setAlbumName(this.albumName);
+
             if(!dropMusic.getGetAlbumData().isEmpty()){
                 return "success";
             }
         }
 
         if(this.artistName != null && !artistName.equals("")) {
-            DropMusicBean dropMusic = this.getDropMusicBean();
-
             dropMusic.setArtistName(this.artistName);
 
             if(!dropMusic.getGetArtistData().isEmpty()) {
@@ -59,6 +83,14 @@ public class DropMusicAction extends ActionSupport implements SessionAware {
 
     public void setArtistName(String artistName) {
         this.artistName = artistName;
+    }
+
+    public void setNewName(String newName) {
+        this.newName = newName;
+    }
+
+    public void setNewDetails(String newDetails) {
+        this.newDetails = newDetails;
     }
 
     @Override

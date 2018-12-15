@@ -33,10 +33,6 @@ public interface RmiInterface extends Remote {
 
     public Boolean addReview(String user, String album, String review, int id) throws java.rmi.RemoteException;
 
-    //public void pesquisaArtista(String s) throws java.rmi.RemoteException;
-
-    //public void pesquisaAlbum(String s) throws java.rmi.RemoteException;
-
     public boolean makeEditor( String user1, String user2, int id) throws java.rmi.RemoteException; //+
 
 

@@ -12,11 +12,29 @@
 <c:choose>
     <c:when test="${session.editor == true}">
         <p><a href="<s:url action="editor" />">Back Editor</a></p>
+
+
+        <h3>Edit Album Name:</h3>
+        <s:form action="edit_name" method="post">
+            <s:text name="New name: "/>
+            <s:textfield name="newName"/>
+            <button type="submit" class="pure-button pure-button-primary">Edit Name</button>
+        </s:form>
+
+        <h3>Edit Album Details:</h3>
+        <s:form action="edit_details" method="post">
+            <s:text name="New Details: "/>
+            <s:textfield name="newDetails"/>
+            <button type="submit" class="pure-button pure-button-primary">Edit Name</button>
+        </s:form>
+
     </c:when>
     <c:otherwise>
         <p><a href="<s:url action="person" />">Back</a></p>
     </c:otherwise>
 </c:choose>
+
+<h3>Album details and Critics: </h3><br>
 
 <c:out value="${dropMusicBean.toShow}"/>
 
