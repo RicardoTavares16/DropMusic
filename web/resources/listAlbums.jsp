@@ -18,6 +18,10 @@
 
 </c:forEach>
 
+<c:forEach items="${dropMusicBean.getAlbumDetails}" var="details">
+    <c:out value="${details}" /><br>
+</c:forEach>
+
 <!-- se editor -> editor.jsp, se person -> person.jsp -->
 <c:choose>
     <c:when test="${session.editor == true}">

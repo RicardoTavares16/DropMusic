@@ -21,6 +21,8 @@ public interface RmiInterface extends Remote {
 
     public ArrayList<String> getAlbuns(int id) throws java.rmi.RemoteException;
 
+    public ArrayList<String> getAlbumDetails(int id) throws java.rmi.RemoteException;
+
     public String getAlbumData(String x, int id) throws java.rmi.RemoteException;
 
     public String getArtistData(String x, int id) throws java.rmi.RemoteException;

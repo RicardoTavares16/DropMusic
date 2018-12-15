@@ -18,10 +18,11 @@ public class DropMusicAction extends ActionSupport implements SessionAware {
     private String newName;
     private String newDetails;
 
-
     @Override
     public String execute() throws Exception {
         DropMusicBean dropMusic = this.getDropMusicBean();
+
+        dropMusic.setUser(session.get("username").toString());
 
         System.out.println("Executing DropMusic Action!");
 

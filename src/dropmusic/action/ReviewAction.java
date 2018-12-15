@@ -26,9 +26,6 @@ public class ReviewAction extends ActionSupport implements SessionAware {
         }
         user = session.get("username").toString();
 
-
-        // @TODO: TRATAMENTO DA STRING
-
         if(this.review != null && !review.equals("")) {
             DropMusicBean dropMusic = this.getDropMusicBean();
 

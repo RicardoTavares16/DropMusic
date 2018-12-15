@@ -122,6 +122,10 @@ public class DropMusicBean implements Serializable {
         return rmiServer.getAlbuns(this.id);
     }
 
+    public ArrayList<String> getGetAlbumDetails() throws RemoteException {
+        return rmiServer.getAlbumDetails(this.id);
+    }
+
     public Boolean getAddReview() throws RemoteException {
         return rmiServer.addReview(this.user, this.albumName, this.review + "*" + this.points, this.id);
     }
