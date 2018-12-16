@@ -1,6 +1,7 @@
 package dropmusic.action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import dropmusic.rest.DropboxConnection;
 import org.apache.struts2.interceptor.SessionAware;
 
 import java.util.Map;
@@ -11,6 +12,11 @@ public class DropboxAction extends ActionSupport implements SessionAware {
 
     @Override
     public String execute() throws Exception {
+        System.out.println("Executing Dropbox Action");
+
+        DropboxConnection dropboxConnection = new DropboxConnection();
+
+
 
         return ERROR;
     }

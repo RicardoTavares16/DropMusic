@@ -37,5 +37,6 @@ public interface RmiInterface extends Remote {
 
     public boolean makeEditor( String user1, String user2, int id) throws java.rmi.RemoteException; //+
 
+    public boolean removeArtist(int id) throws java.rmi.RemoteException;
 
 }

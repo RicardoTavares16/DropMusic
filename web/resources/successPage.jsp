@@ -9,16 +9,16 @@
 </head>
 <body>
 
-<s:form action="make_editor" method="post">
-    <s:text name="User to make editor: "/>
-    <s:textfield name="user2"/>
-    <button type="submit" class="pure-button pure-button-primary">Make Editor</button>
-</s:form>
+<h1>SUCCESS!</h1>
 
-<p><a href="<s:url action="remove" />">Remove Artists that have 0 albums</a></p>
-
-<p><a href="<s:url action="editor" />">Back Editor</a></p>
-
+<c:choose>
+    <c:when test="${session.editor == true}">
+        <p><a href="<s:url action="editor" />">Back Editor</a></p>
+    </c:when>
+    <c:otherwise>
+        <p><a href="<s:url action="person" />">Back</a></p>
+    </c:otherwise>
+</c:choose>
 
 <script src="resources/js/jquery-3.2.1.min.js"></script>
 <script src="resources/js/websocket.js"></script>

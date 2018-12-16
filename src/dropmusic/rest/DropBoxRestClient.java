@@ -7,28 +7,12 @@ import com.github.scribejava.core.oauth.OAuthService;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import uc.sd.apis.DropBoxApi2;
 
-import java.awt.*;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URL;
-
-// Step 1: Create Dropbox Account
-// Step 2: Create Application (https://www.dropbox.com/developers)
-
 public class DropBoxRestClient {
-
-
-	// Access codes #1: per application used to get access codes #2	
 	private static final String API_APP_KEY = "3fnl0xwmlv4o4ac";
 	private static final String API_APP_SECRET = "3uvcl9l0t2pdo2u";
-	
-	// Access codes #2: per user per application
+
 	private static final String API_USER_TOKEN = "";
 	//vU8En2b_cPAAAAAAAAARf3pvxVP8v6ylaOhNorEEY38i5Vl8-1bj3M8aqnl_nSQe
 
@@ -46,7 +30,7 @@ public class DropBoxRestClient {
 				System.out.println("Authorize scribe here:");
 				System.out.println(service.getAuthorizationUrl(null));
 
-				Desktop.getDesktop().browse(URI.create(service.getAuthorizationUrl(null)));
+				/*Desktop.getDesktop().browse(URI.create(service.getAuthorizationUrl(null)));
 
 				URL url = new URL(service.getAuthorizationUrl(null));
 				InputStream is = url.openStream();
@@ -57,7 +41,7 @@ public class DropBoxRestClient {
 				}
 
 				Document doc = Jsoup.parse(buffer.toString());
-				System.out.println(doc.body().text());
+				System.out.println(doc.body().text());*/
 
 				//@TODO: receber do html o código
 				Verifier verifier = new Verifier("vU8En2b_cPAAAAAAAAARf3pvxVP8v6ylaOhNorEEY38i5Vl8-1bj3M8aqnl_nSQe");
@@ -73,11 +57,11 @@ public class DropBoxRestClient {
 
 		} catch(OAuthException e) {
 			e.printStackTrace();
-		} catch (MalformedURLException e) {
+		} /*catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 	private static void listFiles(OAuthService service, Token accessToken) {

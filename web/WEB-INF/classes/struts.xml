@@ -114,6 +114,11 @@ and should reside on the classpath of the webapp (generally /WEB-INF/classes). -
             <result name="error">/error.jsp</result>
         </action>
 
+        <action name="remove" class="dropmusic.action.RemoveAction" method="execute">
+            <result name="success">/resources/successPage.jsp</result>
+            <result name="error">/error.jsp</result>
+        </action>
+
     </package>
 
 </struts>

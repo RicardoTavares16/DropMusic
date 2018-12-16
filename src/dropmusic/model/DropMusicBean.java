@@ -134,8 +134,12 @@ public class DropMusicBean implements Serializable {
         return rmiServer.editAlbumName(this.user, this.albumName, this.newName, this.id);
     }
 
-    public Boolean getEditAlbumDetails() throws RemoteException{
+    public Boolean getEditAlbumDetails() throws RemoteException {
         return rmiServer.editAlbumDetails(this.user, this.albumName, this.newDetails, this.id);
+    }
+
+    public boolean getRemoveArtist() throws RemoteException {
+        return rmiServer.removeArtist(this.id);
     }
 
     // @TODO: implementar nas struts
