@@ -6,6 +6,10 @@ import java.rmi.Remote;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Interface para comunicação com o Servidor RMI
+ * A descrição de cada função está na classe RmiServer.java
+ */
 public interface RmiInterface extends Remote {
     public boolean login(String user, String pass, int id) throws java.rmi.RemoteException; //+
 

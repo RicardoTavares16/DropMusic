@@ -1,5 +1,8 @@
 package dropmusic.auxfunc;
 
+/**
+ * Class que contém funções para fazer parsing dos inputs de cliente
+ */
 public class stringFilter {
 
     public static String filter(String toFilter) {

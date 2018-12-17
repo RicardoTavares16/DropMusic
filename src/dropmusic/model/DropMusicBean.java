@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Classe com os métodos de set e get auxiliares às funções de Pesquisa, Edição e Remoção, estabelece ligação com o servidor RMI
+ */
 public class DropMusicBean implements Serializable {
     public static final String SESSION_MAP_KEY = "dropMusicBean";
 
@@ -38,6 +41,11 @@ public class DropMusicBean implements Serializable {
     private String newDetails;
     private List<Music> newList = Collections.synchronizedList(new ArrayList<Music>());
 
+    /**
+     * Construtor
+     * Define o ID do cliente para as respostas multicast e estabelece a ligação com o servidor RMI
+     * @throws Exception
+     */
     public DropMusicBean() throws Exception {
         try {
             System.out.println("Creating RMI Connection...");
@@ -49,6 +57,7 @@ public class DropMusicBean implements Serializable {
         }
     }
 
+    //Pares set/get
     public void setName(String name) {
         this.name = stringFilter.filter(name);
     }
@@ -102,6 +111,12 @@ public class DropMusicBean implements Serializable {
     }
 
     // Calls to RMI Server:
+
+    /**
+     * Função para obter as músicas de um álbum
+     * @return String com as músicas, filtrada pela função de parsing
+     * @throws RemoteException
+     */
     public String getGetAlbumData() throws RemoteException { // @TODO: parse para colocar isto bonito?
         System.out.println("Getting album data...");
         this.toShow = stringFilter.filterReverse(rmiServer.getAlbumData(this.albumName, this.id));
@@ -109,6 +124,11 @@ public class DropMusicBean implements Serializable {
         return this.toShow;
     }
 
+    /**
+     * Função para obter os dados de um artista
+     * @return String com os dados, filtrada pela função de parsing
+     * @throws RemoteException
+     */
     public String getGetArtistData() throws RemoteException {
         System.out.println("Getting artist data...");
         this.toShow = stringFilter.filterReverse(rmiServer.getArtistData(this.artistName, this.id));
@@ -118,30 +138,65 @@ public class DropMusicBean implements Serializable {
         return this.toShow;
     }
 
+    /**
+     * Função para obter todos os álbuns
+     * @return Lista com os nomes dos álbuns
+     * @throws RemoteException
+     */
     public ArrayList<String> getGetAlbuns() throws RemoteException {
         return rmiServer.getAlbuns(this.id);
     }
 
+    /**
+     * Função para obter todos os detalhes de um álbum (criticas etc)
+     * @return Lista com os detalhes
+     * @throws RemoteException
+     */
     public ArrayList<String> getGetAlbumDetails() throws RemoteException {
         return rmiServer.getAlbumDetails(this.id);
     }
 
+    /**
+     * Função para adicionar uma review a um álbum
+     * @return true/false dependendo da resposta do RMI
+     * @throws RemoteException
+     */
     public Boolean getAddReview() throws RemoteException {
         return rmiServer.addReview(this.user, this.albumName, this.review + "*" + this.points, this.id);
     }
 
+    /**
+     * Função para editar o nome de um álbum
+     * @return true/false dependendo da resposta do RMI
+     * @throws RemoteException
+     */
     public Boolean getEditAlbumName() throws RemoteException {
         return rmiServer.editAlbumName(this.user, this.albumName, this.newName, this.id);
     }
 
+    /**
+     * Função para editar os detalhes de um álbum
+     * @return true/false dependendo da resposta do RMI
+     * @throws RemoteException
+     */
     public Boolean getEditAlbumDetails() throws RemoteException {
         return rmiServer.editAlbumDetails(this.user, this.albumName, this.newDetails, this.id);
     }
 
+    /**
+     * Função para remover um artista
+     * @return true/false dependendo da resposta do RMI
+     * @throws RemoteException
+     */
     public boolean getRemoveArtist() throws RemoteException {
         return rmiServer.removeArtist(this.id);
     }
 
+    /**
+     * Função para editar as músicas de um álbum
+     * @return true/false dependendo da resposta do RMI
+     * @throws RemoteException
+     */
     // @TODO: implementar nas struts
     public boolean getEditAlbumData() throws RemoteException {
         return rmiServer.editAlbumData(this.user, this.albumName, this.newList, this.id);
