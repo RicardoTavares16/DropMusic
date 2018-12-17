@@ -64,6 +64,7 @@ public class WebSocketAnnotation {
     public void broadcast(String message){
         for(Session session: socketSessions){
             try {
+                System.out.println(session.getUserPrincipal());
                 session.getBasicRemote().sendText(message);
             } catch (IOException e2){
                 e2.printStackTrace();
