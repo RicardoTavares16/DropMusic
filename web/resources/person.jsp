@@ -34,6 +34,8 @@
         </s:form>
     </div>
 
+    <p><a href="<s:url action="dropbox" />">Dropbox</a></p>
+
     <noscript>JavaScript must be enabled for WebSockets to work.</noscript>
 
     <script src="resources/js/jquery-3.2.1.min.js"></script>

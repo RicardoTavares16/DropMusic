@@ -24,7 +24,6 @@
             <button type="submit" class="pure-button pure-button-primary">Sign In</button>
         </s:form>
 
-        <h4>Login with DropBox</h4>
     </div>
 
     <div class="reg">
