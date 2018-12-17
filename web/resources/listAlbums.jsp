@@ -6,22 +6,30 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>DropMusic - List Albums</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 <body>
 <h1><p>List Albuns</p></h1>
 
-
-<c:forEach items="${dropMusicBean.getAlbuns}" var="album">
-    <a href="<s:url action="review">
+<div class="row">
+    <div class="col-sm-6">
+        <h3>Albums</h3>
+        <c:forEach items="${dropMusicBean.getAlbuns}" var="album">
+            <a href="<s:url action="review">
         <s:param name="albumName">${album}</s:param>
-    </s:url>"><c:out value="${album}" /><br></a>
+    </s:url>"><c:out value="${album}"/><br></a>
 
-</c:forEach>
+        </c:forEach>
+    </div>
 
-<c:forEach items="${dropMusicBean.getAlbumDetails}" var="details">
-    <c:out value="${details}" /><br>
-</c:forEach>
-
+    <div class="col-sm-6">
+        <h3>Details</h3>
+        <c:forEach items="${dropMusicBean.getAlbumDetails}" var="details">
+            <c:out value="${details}"/><br>
+        </c:forEach>
+    </div>
+</div>
 <!-- se editor -> editor.jsp, se person -> person.jsp -->
 <c:choose>
     <c:when test="${session.editor == true}">
@@ -31,6 +39,7 @@
         <p><a href="<s:url action="person" />">Back</a></p>
     </c:otherwise>
 </c:choose>
+
 
 <noscript>JavaScript must be enabled for WebSockets to work.</noscript>
 

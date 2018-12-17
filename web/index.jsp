@@ -1,42 +1,39 @@
-<%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Drop Music - Login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 <body>
 
 <h1>DropMusic</h1>
-<div class="logreg">
-    <div class="login">
-        <h4>Sign In</h4>
-        <s:form action="login" method="post">
-            <s:text name="Username:"/>
-            <s:textfield name="username"/><br>
-            <s:text name="Password:"/>
-            <s:password name="password"/><br>
-            <button type="submit" class="pure-button pure-button-primary">Sign In</button>
-        </s:form>
+<p class="form-group">
+<h4>Sign In</h4>
+<s:form action="login" method="post">
+    <s:text name="Username"/><br>
+    <s:textfield name="username"/><br>
+    <s:text name="Password"/><br>
+    <s:password name="password"/><br>
+    <button type="submit" class="pure-button pure-button-primary">Sign In</button>
+</s:form>
+</p>
 
-    </div>
-
-    <div class="reg">
-        <h4>Sign Up</h4>
-        <s:form action="regist" method="post">
-            <s:text name="Username"/>
-            <s:textfield name="username"/>
-            <s:text name="Password"/>
-            <s:password name="password"/><br>
-            <button type="submit" class="pure-button pure-button-primary">Sign Up</button>
-        </s:form>
-    </div>
-</div>
+<p class="form-group">
+<h4>Sign Up</h4>
+<s:form action="regist" method="post">
+    <s:text name="Username"/><br>
+    <s:textfield name="username"/><br>
+    <s:text name="Password"/><br>
+    <s:password name="password"/><br>
+    <button type="submit" class="pure-button pure-button-primary">Sign Up</button>
+</s:form>
+</p>
 
 </body>
 </html>
