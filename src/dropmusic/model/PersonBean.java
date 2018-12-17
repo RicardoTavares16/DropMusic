@@ -37,7 +37,6 @@ public class PersonBean implements Serializable {
             id = id * 2 + 1;
             System.out.println("RMI");
             rmiServer = (RmiInterface) Naming.lookup("XPTO");
-            System.out.println(rmiServer);
         } catch (NotBoundException | MalformedURLException | RemoteException e) {
             throw new ServletException(e);
         }

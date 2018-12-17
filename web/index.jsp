@@ -13,27 +13,29 @@
 <body>
 
 <h1>DropMusic</h1>
-<p class="form-group">
-<h4>Sign In</h4>
-<s:form action="login" method="post">
-    <s:text name="Username"/><br>
-    <s:textfield name="username"/><br>
-    <s:text name="Password"/><br>
-    <s:password name="password"/><br>
-    <button type="submit" class="pure-button pure-button-primary">Sign In</button>
-</s:form>
-</p>
+<div class="row">
+    <div class="col-sm-6 text-center">
+        <h4>Sign In</h4>
+        <s:form action="login" method="post">
+            <s:text name="Username"/><br>
+            <s:textfield name="username"/><br>
+            <s:text name="Password"/><br>
+            <s:password name="password"/><br>
+            <button type="submit" class="pure-button pure-button-primary">Sign In</button>
+        </s:form>
+    </div>
 
-<p class="form-group">
-<h4>Sign Up</h4>
-<s:form action="regist" method="post">
-    <s:text name="Username"/><br>
-    <s:textfield name="username"/><br>
-    <s:text name="Password"/><br>
-    <s:password name="password"/><br>
-    <button type="submit" class="pure-button pure-button-primary">Sign Up</button>
-</s:form>
-</p>
+    <div class="col-sm-6 text-center">
+        <h4>Sign Up</h4>
+        <s:form action="regist" method="post">
+            <s:text name="Username"/><br>
+            <s:textfield name="username"/><br>
+            <s:text name="Password"/><br>
+            <s:password name="password"/><br>
+            <button type="submit" class="pure-button pure-button-primary">Sign Up</button>
+        </s:form>
+    </div>
+</div>
 
 </body>
 </html>

@@ -13,7 +13,7 @@
 <h1><p>List Albuns</p></h1>
 
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-6 text-center">
         <h3>Albums</h3>
         <c:forEach items="${dropMusicBean.getAlbuns}" var="album">
             <a href="<s:url action="review">
